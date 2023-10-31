@@ -448,6 +448,8 @@ class VertexAIModelGarden(_VertexAIBase, BaseLLM):
         response = self.client.predict(endpoint=endpoint, instances=predict_instances)
         generations: List[List[Generation]] = []
         for result in response.predictions:
+            print(type(result))
+            print(result)
             generations.append(
                 [Generation(text=prediction[self.result_arg]) for prediction in result]
             )
